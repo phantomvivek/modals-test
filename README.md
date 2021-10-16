@@ -10,7 +10,9 @@ This app demonstrates the use of a modal utility created in React. Via this util
 - Manage modal state via react context, available on the entire app, with functions exposed to create, open or close modals
 
 # Modals API
-
+- CREATE: Create Modals via a dispatch, with any kind of HTML
+- SHOW: Show modals from anywhere in app, via dispatch from context
+- CLOSE: Close modals from anywhere in app, via dispatch from context
 
 # Getting Started with Create React App
 
