@@ -1,0 +1,35 @@
+import React, { useReducer } from 'react'
+import './App.css'
+import ModalParent from './components/modals/modal-parent'
+import SampleModal from './components/modals/sample-modals/sample'
+import SampleModal2 from './components/modals/sample-modals/sample-2'
+import ModalContext from './components/modals/state/modal-context'
+import ModalReducer from './components/modals/state/modal-reducer'
+
+function App() {
+    const [state, dispatch] = useReducer(ModalReducer, {})
+
+    const createModal = () => {
+        dispatch({
+            type: 'CREATE',
+            payload: { key: 'sample', children: <SampleModal />, isOpen: true },
+        })
+
+        // Dispatch sample 2 so it is created, but don't show
+        dispatch({
+            type: 'CREATE',
+            payload: { key: 'sample2', children: <SampleModal2 /> },
+        })
+    }
+
+    return (
+        <ModalContext.Provider value={{ state, dispatch }}>
+            <ModalParent />
+            <div className="App">
+                <button onClick={createModal}>Create Modal 1</button>
+            </div>
+        </ModalContext.Provider>
+    )
+}
+
+export default App

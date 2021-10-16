@@ -1,0 +1,17 @@
+.App {
+    text-align: left;
+}
+
+.modal-wrapper {
+    position: absolute;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.25);
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 1em;
+    box-sizing: border-box;
+}
