@@ -1,7 +1,8 @@
 const ModalReducer = (state = {}, action) => {
     const { type, payload } = action
-    console.log('Modal action', type, payload)
     switch (type) {
+        // Action for creating a modal
+        // Modal will only be shown if the isOpen param is true
         case 'CREATE': {
             const modal = {
                 key: payload.key,
@@ -16,6 +17,7 @@ const ModalReducer = (state = {}, action) => {
             return state
         }
 
+        // Action for showing a modal
         case 'OPEN': {
             const modalKey = payload.key
             const modalData = state[modalKey]
@@ -28,6 +30,8 @@ const ModalReducer = (state = {}, action) => {
             }
             return state
         }
+
+        // Action for closing an open modal
         case 'CLOSE': {
             const modalKey = payload.key
             const modalData = state[modalKey]

@@ -3,7 +3,6 @@ This app demonstrates the use of a modal utility created in React. Via this util
 - Create, open & close modals from anywhere in the app via a "key" reference
 - Modals can stack on top of each other depending on order created
 - Modals styled via CSS & can contain any kind of inner HTML
-- Add-on: Confirmation modal wrapper with callbacks for onSubmit & onCancel
 
 # Creation Thought Process:
 - Check out react portals to limit creation of modals on a different DOM element to keep separation of HTML & for absolute positioning to take effect

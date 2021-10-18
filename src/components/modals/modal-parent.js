@@ -9,14 +9,15 @@ const ModalParent = () => {
         <div className="modal-wrapper">{children}</div>
     )
 
-    console.log(state)
-
+    // Filter out modals that don't need to be shown
     const modals = Object.keys(state)
         .map((key) => state[key])
+        // Filter out created but not shown modals
         .filter((modal) => modal && modal.isOpen)
+        // Wrap the modal children in a container
         .map((modal) => modalWrapper(modal.children))
 
-    // Append all the modals
+    // Append all the modals via portal to modals-root, which lives outside the app root
     return ReactDOM.createPortal(modals, document.getElementById('modals-root'))
 }
 

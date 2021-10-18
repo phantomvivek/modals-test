@@ -7,15 +7,18 @@ import ModalContext from './components/modals/state/modal-context'
 import ModalReducer from './components/modals/state/modal-reducer'
 
 function App() {
+    // The state is set on the app level, with the provider added on the app so dispatch can be accessed at any part of the app
     const [state, dispatch] = useReducer(ModalReducer, {})
 
+    // Sample create modal call via one button
     const createModal = () => {
+        // Create sample modal & also show
         dispatch({
             type: 'CREATE',
             payload: { key: 'sample', children: <SampleModal />, isOpen: true },
         })
 
-        // Dispatch sample 2 so it is created, but don't show
+        // Dispatch sample 2 so it is created, but don't show, we will show this from another part of the tree
         dispatch({
             type: 'CREATE',
             payload: { key: 'sample2', children: <SampleModal2 /> },

@@ -3,10 +3,13 @@ import ModalContext from '../state/modal-context'
 
 const SampleModal = () => {
     const { dispatch } = useContext(ModalContext)
+
+    // Close this modal
     const closeModal = () => {
         dispatch({ type: 'CLOSE', payload: { key: 'sample' } })
     }
 
+    // Open the 2nd modal from the 1st
     const showModal2 = () => {
         dispatch({ type: 'OPEN', payload: { key: 'sample2' } })
     }
